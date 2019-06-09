@@ -1,8 +1,26 @@
-package com.data;
+package com.data.objects;
 
 import java.util.ArrayList;
 
-public class Ticket {
+public class TicketJSON {
+
+    private String _id;
+    private String url;
+    private String external_id;
+    private String created_at;
+    private String type;
+    private String subject;
+    private String description;
+    private String priority;
+    private String status;
+    private int submitter_id;
+    private int assignee_id;
+    private int organization_id;
+    private ArrayList<String> tags;
+    private boolean has_incidents;
+    private String due_at;
+    private String via;
+
     public String get_id() {
         return _id;
     }
@@ -130,21 +148,4 @@ public class Ticket {
     public void setVia(String via) {
         this.via = via;
     }
-
-    private String _id;
-    private String url;
-    private String external_id;
-    private String created_at;
-    private String type;
-    private String subject;
-    private String description;
-    private String priority;
-    private String status;
-    private int submitter_id;
-    private int assignee_id;
-    private int organization_id;
-    private ArrayList<String> tags;
-    private boolean has_incidents;
-    private String due_at;
-    private String via;
 }

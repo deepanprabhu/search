@@ -1,8 +1,9 @@
-package com.data;
+package com.data.objects;
 
 import java.util.ArrayList;
 
-public class Organization {
+public class OrganizationJSON {
+
     private int _id;
     private String url;
     private String external_id;
