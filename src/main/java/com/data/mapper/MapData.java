@@ -32,6 +32,10 @@ public class MapData {
         return tickets;
     }
 
+    /**
+     * Load Jsons, Resolve References and Create Java Objects for Querying
+     * @throws FileNotFoundException
+     */
     public MapData() throws FileNotFoundException {
         OrganizationJSON[] organizationsJsons = JsonLoader.loadOrganizations();
         TicketJSON[] ticketsJsons = JsonLoader.loadTickets();
@@ -39,13 +43,14 @@ public class MapData {
 
         ArrayList<Organization> orgList = new ArrayList<Organization>();
 
-        //  From Json Objects - Create Main Organization Object Hash
+        //  From Json Objects - Create Main Organization Objects
         for(OrganizationJSON organizationJson : organizationsJsons){
             Organization organization = new Organization(organizationJson);
             orgMap.put(organizationJson.get_id(), organization);
             orgList.add(organization);
         }
 
+        //  From Json Objects - Create Main User Objects
         ArrayList<User> userList = new ArrayList<User>();
         for(UserJSON userJson : usersJsons) {
             User user = new User(userJson, orgMap);
@@ -54,6 +59,7 @@ public class MapData {
 
         }
 
+        //  From Json Objects - Create Main Ticket Objects
         ArrayList<Ticket> ticketList = new ArrayList<Ticket>();
         for(TicketJSON ticketJson : ticketsJsons) {
             Ticket ticket = new Ticket(ticketJson, orgMap, userMap);

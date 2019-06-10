@@ -10,12 +10,15 @@ import java.util.HashMap;
 // TODO: Directly load from JSON files - But not sure how references would work
 
 /**
- * JXPath JSON Container Implementation
+ * JXPath JSON Container Implementation - Refer Container implementation in JXPath
  */
 public class JsonContainer implements Container {
 
     MapData mapData;
 
+    /**
+     * Constructor begins by mapping json files and resolving references.
+     */
     public JsonContainer(){
         try{
             mapData = new MapData();
@@ -27,6 +30,10 @@ public class JsonContainer implements Container {
 
     HashMap<String, Object> objects = new HashMap<String, Object>();
 
+    /**
+     *
+     * @return Object Hashmap - Referring users, tickets and organizations
+     */
     public Object getValue() {
         objects.put("users", mapData.getUsers());
         objects.put("tickets", mapData.getTickets());

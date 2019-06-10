@@ -7,6 +7,11 @@ public class PrettyPrinter {
     private PrettyPrinter(){
 
     }
+
+    /**
+     * Customize this method to change object display
+     * @param object
+     */
     public static void print(Object object){
         int counter = 0;
         if(object != null && object.getClass().isArray()) {
