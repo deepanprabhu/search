@@ -25,7 +25,8 @@ public class Main {
                     PrettyPrinter.print(Query.query(args[1]));
                 }
                 catch(JXPathNotFoundException exception){
-                    System.out.println("Your search query seems invalid - Please retry with right query");
+                    System.out.println("Your search query seems invalid - Please retry with right query" +
+                            "\n Some reasons are 1) Wrong xpath operator, \n2) Non existent property in schema");
                 }
             } else {
                 System.out.println("Usage: help");
