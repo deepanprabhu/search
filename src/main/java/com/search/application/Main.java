@@ -8,7 +8,5 @@ import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args)throws FileNotFoundException {
-        JXPathContext context = JXPathContext.newContext(new Document());
-        PrettyPrinter.print(context.getValue("document/users[position() < 3]"));
     }
 }
