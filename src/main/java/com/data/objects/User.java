@@ -1,7 +1,6 @@
 package com.data.objects;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +25,27 @@ public class User {
     private ArrayList<String> tags;
     private boolean suspended;
     private String role;
+
+    public User(UserJSON jsonObject, Map<Integer, Organization> orgMap) {
+        this.id = jsonObject.get_id();
+        this.url = jsonObject.getUrl();
+        this.name = jsonObject.getName();
+        this.alias = jsonObject.getAlias();
+        this.createdAt = jsonObject.getCreated_at();
+        this.active = jsonObject.isActive();
+        this.verified = jsonObject.isVerified();
+        this.shared = jsonObject.isShared();
+        this.locale = jsonObject.getLocale();
+        this.timezone = jsonObject.getTimezone();
+        this.lastLoginAt = jsonObject.getLast_login_at();
+        this.email = jsonObject.getEmail();
+        this.signature = jsonObject.getSignature();
+        this.tags = jsonObject.getTags();
+        this.suspended = jsonObject.isSuspended();
+        this.role = jsonObject.getRole();
+
+        this.organization = orgMap.get(jsonObject.getOrganization_id());
+    }
 
     public int getId() {
         return id;
@@ -93,27 +113,6 @@ public class User {
 
     public String getRole() {
         return role;
-    }
-
-    public User(UserJSON jsonObject, Map<Integer, Organization> orgMap){
-        this.id = jsonObject.get_id();
-        this.url = jsonObject.getUrl();
-        this.name = jsonObject.getName();
-        this.alias = jsonObject.getAlias();
-        this.createdAt = jsonObject.getCreated_at();
-        this.active = jsonObject.isActive();
-        this.verified = jsonObject.isVerified();
-        this.shared = jsonObject.isShared();
-        this.locale = jsonObject.getLocale();
-        this.timezone = jsonObject.getTimezone();
-        this.lastLoginAt = jsonObject.getLast_login_at();
-        this.email = jsonObject.getEmail();
-        this.signature = jsonObject.getSignature();
-        this.tags = jsonObject.getTags();
-        this.suspended = jsonObject.isSuspended();
-        this.role = jsonObject.getRole();
-
-        this.organization = orgMap.get(jsonObject.getOrganization_id());
     }
 
     @Override

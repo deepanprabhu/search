@@ -17,21 +17,21 @@ public class JsonLoader {
     public static final String TICKETS_JSON = "tickets.json";
     public static final String USERS_JSON = "users.json";
 
-    private JsonLoader(){
+    private JsonLoader() {
 
     }
 
-    public static OrganizationJSON[] loadOrganizations() throws FileNotFoundException{
+    public static OrganizationJSON[] loadOrganizations() throws FileNotFoundException {
         Gson gson = new Gson();
         return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource(ORGANIZATIONS_JSON).getPath()), OrganizationJSON[].class);
     }
 
-    public static TicketJSON[] loadTickets() throws FileNotFoundException{
+    public static TicketJSON[] loadTickets() throws FileNotFoundException {
         Gson gson = new Gson();
         return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource(TICKETS_JSON).getPath()), TicketJSON[].class);
     }
 
-    public static UserJSON[] loadUsers() throws FileNotFoundException{
+    public static UserJSON[] loadUsers() throws FileNotFoundException {
         Gson gson = new Gson();
         return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource(USERS_JSON).getPath()), UserJSON[].class);
     }

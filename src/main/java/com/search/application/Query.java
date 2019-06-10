@@ -12,10 +12,11 @@ public class Query {
 
     /**
      * This method takes a query and returns the resultSet
+     *
      * @param queryString
      * @return resultSet as Object
      */
-    public static Object query(String queryString){
+    public static Object query(String queryString) {
         return context.getValue(queryString);
     }
 }

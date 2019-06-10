@@ -14,6 +14,8 @@ public class OrganizationJSON {
     private ArrayList<String> domain_names;
     private String created_at;
     private String details;
+    private boolean shared_tickets;
+    private ArrayList<String> tags;
 
     public String getUrl() {
         return url;
@@ -86,7 +88,4 @@ public class OrganizationJSON {
     public void set_id(int _id) {
         this._id = _id;
     }
-
-    private boolean shared_tickets;
-    private ArrayList<String> tags;
 }

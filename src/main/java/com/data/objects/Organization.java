@@ -14,6 +14,15 @@ public class Organization {
     private String createdAt;
     private String details;
 
+    public Organization(OrganizationJSON jsonObject) {
+        this.id = jsonObject.get_id();
+        this.url = jsonObject.getUrl();
+        this.name = jsonObject.getName();
+        this.domainNames = jsonObject.getDomain_names();
+        this.createdAt = jsonObject.getCreated_at();
+        this.details = jsonObject.getDetails();
+    }
+
     public int getId() {
         return id;
     }
@@ -36,15 +45,6 @@ public class Organization {
 
     public String getDetails() {
         return details;
-    }
-
-    public Organization(OrganizationJSON jsonObject){
-        this.id = jsonObject.get_id();
-        this.url = jsonObject.getUrl();
-        this.name = jsonObject.getName();
-        this.domainNames = jsonObject.getDomain_names();
-        this.createdAt = jsonObject.getCreated_at();
-        this.details = jsonObject.getDetails();
     }
 
     @Override

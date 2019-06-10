@@ -17,6 +17,7 @@ public class MockedSearchTests {
 
     /**
      * Query to pick one organization
+     *
      * @throws FileNotFoundException
      */
     @Test
@@ -29,6 +30,7 @@ public class MockedSearchTests {
 
     /**
      * Query to pick one user
+     *
      * @throws FileNotFoundException
      */
     @Test
@@ -41,6 +43,7 @@ public class MockedSearchTests {
 
     /**
      * Test when query is invalid
+     *
      * @throws FileNotFoundException
      */
     @Test(expected = JXPathNotFoundException.class)

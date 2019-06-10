@@ -15,23 +15,20 @@ import java.util.HashMap;
 public class JsonContainer implements Container {
 
     MapData mapData;
+    HashMap<String, Object> objects = new HashMap<String, Object>();
 
     /**
      * Constructor begins by mapping json files and resolving references.
      */
-    public JsonContainer(){
-        try{
+    public JsonContainer() {
+        try {
             mapData = new MapData();
-        }
-        catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.err.println("JSON File not Found - Please Check");
         }
     }
 
-    HashMap<String, Object> objects = new HashMap<String, Object>();
-
     /**
-     *
      * @return Object Hashmap - Referring users, tickets and organizations
      */
     public Object getValue() {
