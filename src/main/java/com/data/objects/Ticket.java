@@ -20,6 +20,66 @@ public class Ticket {
     private String dueAt;
     private String via;
 
+    public String getId() {
+        return id;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getPriority() {
+        return priority;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public User getSubmitter() {
+        return submitter;
+    }
+
+    public User getAssignee() {
+        return assignee;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public ArrayList<String> getTags() {
+        return tags;
+    }
+
+    public boolean isHasIncidents() {
+        return hasIncidents;
+    }
+
+    public String getDueAt() {
+        return dueAt;
+    }
+
+    public String getVia() {
+        return via;
+    }
+
     public Ticket(TicketJSON jsonObject, HashMap<Integer, Organization> orgMap, HashMap<Integer, User> userMap){
         this.id = jsonObject.get_id();
         this.url = jsonObject.getUrl();

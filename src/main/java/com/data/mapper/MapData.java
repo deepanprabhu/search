@@ -56,8 +56,8 @@ public class MapData {
             ticketList.add(ticket);
         }
 
-        organizations = (Organization[]) orgList.toArray();
-        users = (User[]) userList.toArray();
-        tickets = (Ticket[]) ticketList.toArray();
+        organizations = orgList.toArray(new Organization[0]);
+        users = userList.toArray(new User[0]);
+        tickets = ticketList.toArray(new Ticket[0]);
     }
 }

@@ -17,12 +17,12 @@ public class JsonLoader {
 
     public static TicketJSON[] loadTickets() throws FileNotFoundException{
         Gson gson = new Gson();
-        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource("organizations.json").getPath()), TicketJSON[].class);
+        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource("tickets.json").getPath()), TicketJSON[].class);
     }
 
     public static UserJSON[] loadUsers() throws FileNotFoundException{
         Gson gson = new Gson();
-        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource("organizations.json").getPath()), UserJSON[].class);
+        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource("users.json").getPath()), UserJSON[].class);
     }
 
 }

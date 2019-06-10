@@ -22,6 +22,74 @@ public class User {
     private boolean suspended;
     private String role;
 
+    public int getId() {
+        return id;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public boolean isVerified() {
+        return verified;
+    }
+
+    public boolean isShared() {
+        return shared;
+    }
+
+    public String getLocale() {
+        return locale;
+    }
+
+    public String getTimezone() {
+        return timezone;
+    }
+
+    public String getLastLoginAt() {
+        return lastLoginAt;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public ArrayList<String> getTags() {
+        return tags;
+    }
+
+    public boolean isSuspended() {
+        return suspended;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
     public User(UserJSON jsonObject, HashMap<Integer, Organization> orgMap){
         this.id = jsonObject.get_id();
         this.url = jsonObject.getUrl();
