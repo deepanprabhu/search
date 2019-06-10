@@ -2,6 +2,9 @@ package com.data.objects;
 
 import java.util.ArrayList;
 
+/**
+ * User JSON POJO
+ */
 public class UserJSON {
     private int _id;
     private String url;

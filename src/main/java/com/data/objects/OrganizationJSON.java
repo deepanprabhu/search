@@ -2,6 +2,9 @@ package com.data.objects;
 
 import java.util.ArrayList;
 
+/**
+ * Organization JSON POJO
+ */
 public class OrganizationJSON {
 
     private int _id;

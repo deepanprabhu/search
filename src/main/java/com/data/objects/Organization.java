@@ -3,6 +3,9 @@ package com.data.objects;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Organization Object
+ */
 public class Organization {
     private int id;
     private String url;

@@ -8,15 +8,18 @@ import com.google.gson.Gson;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+/**
+ * This class Loads JSON files from resources folder, and POJOs
+ */
 public class JsonLoader {
-
-    private JsonLoader(){
-
-    }
 
     public static final String ORGANIZATIONS_JSON = "organizations.json";
     public static final String TICKETS_JSON = "tickets.json";
     public static final String USERS_JSON = "users.json";
+
+    private JsonLoader(){
+
+    }
 
     public static OrganizationJSON[] loadOrganizations() throws FileNotFoundException{
         Gson gson = new Gson();

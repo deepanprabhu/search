@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Ticket Object - References Organization and User Objects
+ */
 public class Ticket {
     private String id;
     private String url;

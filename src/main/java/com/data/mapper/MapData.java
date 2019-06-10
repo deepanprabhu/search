@@ -7,6 +7,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * This class creates Actual Java Objects from JSON POJOs, and resolves references
+ **/
 public class MapData {
 
     Organization[] organizations;
@@ -35,6 +38,7 @@ public class MapData {
         UserJSON[] usersJsons = JsonLoader.loadUsers();
 
         ArrayList<Organization> orgList = new ArrayList<Organization>();
+
         //  From Json Objects - Create Main Organization Object Hash
         for(OrganizationJSON organizationJson : organizationsJsons){
             Organization organization = new Organization(organizationJson);

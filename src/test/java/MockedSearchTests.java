@@ -15,6 +15,10 @@ import java.io.FileNotFoundException;
 @PrepareForTest(JsonLoader.class)
 public class MockedSearchTests {
 
+    /**
+     * Query to pick one organization
+     * @throws FileNotFoundException
+     */
     @Test
     public void testGetOrganization() throws FileNotFoundException {
         Organization[] organizations = (Organization[]) Query.query("doc/organizations");
@@ -23,8 +27,24 @@ public class MockedSearchTests {
         Assert.assertEquals(organizations[0].getName(), "Enthaze");
     }
 
+    /**
+     * Query to pick one user
+     * @throws FileNotFoundException
+     */
+    @Test
+    public void testGetAUser() throws FileNotFoundException {
+        User user = (User) Query.query("doc/users[1]");
+
+        Assert.assertEquals(user.getEmail(), "austinaguilar@flotonic.com");
+    }
+
+
+    /**
+     * Test when query is invalid
+     * @throws FileNotFoundException
+     */
     @Test(expected = JXPathNotFoundException.class)
-    public void testWrongQuery() throws FileNotFoundException {
+    public void testInvalidQuery() throws FileNotFoundException {
         Query.query("docs");
     }
 
@@ -45,6 +65,15 @@ public class MockedSearchTests {
     public void testRelatedEntriesAssignedUser() {
         User user = (User) Query.query("doc/tickets[1]/assignee");
         Assert.assertEquals(user.getName(), "Tyler Bates");
+    }
+
+    /**
+     * Get user has no or empty Role
+     */
+    @Test
+    public void testUserWithEmptyRole() {
+        User user = (User) Query.query("doc/users[@role='']");
+        Assert.assertEquals(user.getEmail(), "noroleuser@flotonic.com");
     }
 
 }

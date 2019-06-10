@@ -7,6 +7,11 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 
+// TODO: Directly load from JSON files - But not sure how references would work
+
+/**
+ * JXPath JSON Container Implementation
+ */
 public class JsonContainer implements Container {
 
     MapData mapData;

@@ -1,5 +1,8 @@
 package com.display;
 
+/**
+ * Basic Pretty printer - for custom display on console
+ */
 public class PrettyPrinter {
     private PrettyPrinter(){
 

@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * User Object - References Organization object
+ */
 public class User {
     private int id;
     private String url;

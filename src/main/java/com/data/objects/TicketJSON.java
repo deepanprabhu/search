@@ -2,6 +2,9 @@ package com.data.objects;
 
 import java.util.ArrayList;
 
+/**
+ * Ticket JSON POJO
+ */
 public class TicketJSON {
 
     private String _id;
