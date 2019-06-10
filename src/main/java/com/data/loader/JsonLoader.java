@@ -22,7 +22,7 @@ public class JsonLoader {
     }
 
     public static String getResourceFileAsString(String fileName) {
-        ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+        ClassLoader classLoader = JsonLoader.class.getClassLoader();
         InputStream is = classLoader.getResourceAsStream(fileName);
         if (is != null) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
