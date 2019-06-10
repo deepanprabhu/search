@@ -42,4 +42,20 @@ public class Organization {
         this.createdAt = jsonObject.getCreated_at();
         this.details = jsonObject.getDetails();
     }
+
+    @Override
+    public String toString() {
+        String domainNamesAsString = String.join(",", this.domainNames);
+
+        StringBuilder displayString = new StringBuilder();
+
+        displayString.append("id = ").append(this.id).append("\n");
+        displayString.append("url = ").append(this.url).append("\n");
+        displayString.append("name = ").append(this.name).append("\n");
+        displayString.append("domainNames = [").append(domainNamesAsString).append("]\n");
+        displayString.append("createdAt = ").append(this.createdAt).append("\n");
+        displayString.append("details = ").append(this.details).append("\n");
+
+        return displayString.toString();
+    }
 }

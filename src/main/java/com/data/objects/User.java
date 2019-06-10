@@ -110,4 +110,31 @@ public class User {
 
         this.organization = orgMap.get(jsonObject.getOrganization_id());
     }
+
+    @Override
+    public String toString() {
+        String tagsAsString = String.join(",", this.tags);
+
+        StringBuilder displayString = new StringBuilder();
+
+        displayString.append("id = ").append(this.id).append("\n");
+        displayString.append("url = ").append(this.url).append("\n");
+        displayString.append("createdAt = ").append(this.createdAt).append("\n");
+        displayString.append("name = ").append(this.name).append("\n");
+        displayString.append("alias = ").append(this.alias).append("\n");
+        displayString.append("verified = ").append(this.verified).append("\n");
+        displayString.append("shared = ").append(this.shared).append("\n");
+        displayString.append("locale = ").append(locale).append("\n");
+        displayString.append("timezone = ").append(this.timezone).append("\n");
+        displayString.append("lastLoginAt = ").append(this.lastLoginAt).append("\n");
+        displayString.append("email = ").append(this.email).append("\n");
+        displayString.append("signature = ").append(this.signature).append("\n");
+        displayString.append("suspended = ").append(this.suspended).append("\n");
+        displayString.append("role = ").append(this.role).append("\n");
+        displayString.append("tags = [").append(tagsAsString).append("]\n");
+        displayString.append("\nUser's organization:\n").append(this.organization).append("\n");
+
+        return displayString.toString();
+    }
+
 }

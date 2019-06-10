@@ -8,6 +8,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MapData {
+
+    Organization[] organizations;
+    User[] users;
+    Ticket[] tickets;
+
+    final HashMap<Integer, Organization> orgMap = new HashMap<Integer, Organization>();
+    final HashMap<Integer, User> userMap = new HashMap<Integer, User>();
+    final HashMap<String, Ticket> ticketMap = new HashMap<String, Ticket>();
+
     public Organization[] getOrganizations() {
         return organizations;
     }
@@ -19,14 +28,6 @@ public class MapData {
     public Ticket[] getTickets() {
         return tickets;
     }
-
-    Organization[] organizations;
-    User[] users;
-    Ticket[] tickets;
-
-    final HashMap<Integer, Organization> orgMap = new HashMap<Integer, Organization>();
-    final HashMap<Integer, User> userMap = new HashMap<Integer, User>();
-    final HashMap<String, Ticket> ticketMap = new HashMap<String, Ticket>();
 
     public MapData() throws FileNotFoundException {
         OrganizationJSON[] organizationsJsons = JsonLoader.loadOrganizations();

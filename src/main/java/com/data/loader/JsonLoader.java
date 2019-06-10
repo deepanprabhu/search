@@ -10,19 +10,23 @@ import java.io.FileReader;
 
 public class JsonLoader {
 
+    public static final String ORGANIZATIONS_JSON = "organizations.json";
+    public static final String TICKETS_JSON = "tickets.json";
+    public static final String USERS_JSON = "users.json";
+
     public static OrganizationJSON[] loadOrganizations() throws FileNotFoundException{
         Gson gson = new Gson();
-        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource("organizations.json").getPath()), OrganizationJSON[].class);
+        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource(ORGANIZATIONS_JSON).getPath()), OrganizationJSON[].class);
     }
 
     public static TicketJSON[] loadTickets() throws FileNotFoundException{
         Gson gson = new Gson();
-        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource("tickets.json").getPath()), TicketJSON[].class);
+        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource(TICKETS_JSON).getPath()), TicketJSON[].class);
     }
 
     public static UserJSON[] loadUsers() throws FileNotFoundException{
         Gson gson = new Gson();
-        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource("users.json").getPath()), UserJSON[].class);
+        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource(USERS_JSON).getPath()), UserJSON[].class);
     }
 
 }

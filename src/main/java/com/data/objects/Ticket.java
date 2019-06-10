@@ -98,4 +98,30 @@ public class Ticket {
         this.assignee = userMap.get(jsonObject.getAssignee_id());
         this.organization = orgMap.get(jsonObject.getOrganization_id());
     }
+
+    @Override
+    public String toString() {
+        String tagsAsString = String.join(",", this.tags);
+
+        StringBuilder displayString = new StringBuilder();
+
+        displayString.append("id = ").append(this.id).append("\n");
+        displayString.append("url = ").append(this.url).append("\n");
+        displayString.append("createdAt = ").append(this.createdAt).append("\n");
+        displayString.append("type = ").append(this.type).append("\n");
+        displayString.append("subject = ").append(this.subject).append("\n");
+        displayString.append("description = ").append(this.description).append("\n");
+        displayString.append("priority = ").append(this.priority).append("\n");
+        displayString.append("status = ").append(this.status).append("\n");
+        displayString.append("tags = [").append(tagsAsString).append("]\n");
+        displayString.append("hasIncidents = ").append(this.hasIncidents).append("\n");
+        displayString.append("dueAt = ").append(this.dueAt).append("\n");
+        displayString.append("via = ").append(this.via).append("\n");
+        displayString.append("\nSubmitter:\n").append(this.submitter).append("\n");
+        displayString.append("\nAssignee:\n").append(this.assignee).append("\n");
+        displayString.append("\nOrganization:\n").append(this.organization).append("\n");
+
+        return displayString.toString();
+    }
+
 }
