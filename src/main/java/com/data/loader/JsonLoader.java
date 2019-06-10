@@ -5,8 +5,8 @@ import com.data.objects.TicketJSON;
 import com.data.objects.UserJSON;
 import com.google.gson.Gson;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
+import java.util.stream.Collectors;
 
 /**
  * This class Loads JSON files from resources folder, and POJOs
@@ -21,19 +21,29 @@ public class JsonLoader {
 
     }
 
+    public static String getResourceFileAsString(String fileName) {
+        ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+        InputStream is = classLoader.getResourceAsStream(fileName);
+        if (is != null) {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            return reader.lines().collect(Collectors.joining(System.lineSeparator()));
+        }
+        return null;
+    }
+
     public static OrganizationJSON[] loadOrganizations() throws FileNotFoundException {
         Gson gson = new Gson();
-        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource(ORGANIZATIONS_JSON).getPath()), OrganizationJSON[].class);
+        return gson.fromJson(getResourceFileAsString(ORGANIZATIONS_JSON), OrganizationJSON[].class);
     }
 
     public static TicketJSON[] loadTickets() throws FileNotFoundException {
         Gson gson = new Gson();
-        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource(TICKETS_JSON).getPath()), TicketJSON[].class);
+        return gson.fromJson(getResourceFileAsString(TICKETS_JSON), TicketJSON[].class);
     }
 
     public static UserJSON[] loadUsers() throws FileNotFoundException {
         Gson gson = new Gson();
-        return gson.fromJson(new FileReader(JsonLoader.class.getClassLoader().getResource(USERS_JSON).getPath()), UserJSON[].class);
+        return gson.fromJson(getResourceFileAsString(USERS_JSON), UserJSON[].class);
     }
 
 }

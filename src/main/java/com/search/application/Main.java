@@ -1,25 +1,40 @@
 package com.search.application;
 
+import com.data.loader.JsonLoader;
 import com.display.PrettyPrinter;
+import org.apache.commons.jxpath.JXPathNotFoundException;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) throws URISyntaxException, IOException {
-        if (args.length == 0 || args.length > 2) {
-            System.out.println("Usage: help");
-        } else if (args.length == 1 && args[0].equalsIgnoreCase("help")) {
-            System.out.println("Usage: search <search-query-xpath>");
-            System.out.println(new String(Files.readAllBytes(Paths.get(Main.class.getClassLoader().getResource("schema.txt").toURI())), StandardCharsets.US_ASCII));
-        } else if (args.length == 1 && args[0].equalsIgnoreCase("search")) {
-            PrettyPrinter.print(Query.query(args[1]));
-        } else {
-            System.out.println("Usage: help");
+        try {
+            if (args.length == 0 || args.length > 2) {
+                System.out.println("Usage: help");
+            } else if (args.length == 1 && args[0].equalsIgnoreCase("help")) {
+                System.out.println("Usage: search <search-query-xpath>");
+                System.out.println(JsonLoader.getResourceFileAsString("schema.txt"));
+            } else if (args.length == 2 && args[0].equalsIgnoreCase("search")) {
+                try {
+                    PrettyPrinter.print(Query.query(args[1]));
+                }
+                catch(JXPathNotFoundException exception){
+                    System.out.println("Your search query seems invalid - Please retry with right query");
+                }
+            } else {
+                System.out.println("Usage: help");
+                System.out.println("Usage: search <search-query-xpath>");
+            }
+        }
+        catch(Exception error){
+            System.out.println(error);
+            System.out.println("Unhandled Exception - " + error.getMessage());
         }
     }
 }
