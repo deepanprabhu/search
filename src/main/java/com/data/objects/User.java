@@ -2,6 +2,8 @@ package com.data.objects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class User {
     private int id;
@@ -78,7 +80,7 @@ public class User {
         return organization;
     }
 
-    public ArrayList<String> getTags() {
+    public List<String> getTags() {
         return tags;
     }
 
@@ -90,7 +92,7 @@ public class User {
         return role;
     }
 
-    public User(UserJSON jsonObject, HashMap<Integer, Organization> orgMap){
+    public User(UserJSON jsonObject, Map<Integer, Organization> orgMap){
         this.id = jsonObject.get_id();
         this.url = jsonObject.getUrl();
         this.name = jsonObject.getName();

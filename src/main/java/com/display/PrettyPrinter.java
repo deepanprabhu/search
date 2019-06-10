@@ -1,10 +1,23 @@
 package com.display;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 public class PrettyPrinter {
+    private PrettyPrinter(){
+
+    }
     public static void print(Object object){
-        System.out.println(object);
+        int counter = 0;
+        if(object != null && object.getClass().isArray()) {
+            Object[] objects = (Object []) object;
+            System.out.println("********");
+            for(Object anObject : objects){
+                System.out.println(String.format("Result : %d", counter));
+                System.out.println(anObject);
+                counter++;
+                System.out.println("********");
+            }
+        }
+        else{
+            System.out.println(object);
+        }
     }
 }

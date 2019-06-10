@@ -1,6 +1,7 @@
 package com.data.objects;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Organization {
     private int id;
@@ -22,7 +23,7 @@ public class Organization {
         return name;
     }
 
-    public ArrayList<String> getDomainNames() {
+    public List<String> getDomainNames() {
         return domainNames;
     }
 

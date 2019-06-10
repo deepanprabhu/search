@@ -3,12 +3,12 @@ package com.jxpath;
 import org.apache.commons.jxpath.Container;
 
 public class Document {
-    private Container document = null;
+    private Container documentContainer = null;
 
-    public Container getDocument(){
-        if(null == document) {
-            document =new JsonContainer();
+    public Container getDocumentContainer(){
+        if(null == documentContainer) {
+            documentContainer =new JsonContainer();
         }
-        return document;
+        return documentContainer;
     }
 }

@@ -2,6 +2,8 @@ package com.data.objects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Ticket {
     private String id;
@@ -64,7 +66,7 @@ public class Ticket {
         return organization;
     }
 
-    public ArrayList<String> getTags() {
+    public List<String> getTags() {
         return tags;
     }
 
@@ -80,7 +82,7 @@ public class Ticket {
         return via;
     }
 
-    public Ticket(TicketJSON jsonObject, HashMap<Integer, Organization> orgMap, HashMap<Integer, User> userMap){
+    public Ticket(TicketJSON jsonObject, Map<Integer, Organization> orgMap, Map<Integer, User> userMap){
         this.id = jsonObject.get_id();
         this.url = jsonObject.getUrl();
         this.createdAt = jsonObject.getCreated_at();

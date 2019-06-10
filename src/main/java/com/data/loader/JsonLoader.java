@@ -10,6 +10,10 @@ import java.io.FileReader;
 
 public class JsonLoader {
 
+    private JsonLoader(){
+
+    }
+
     public static final String ORGANIZATIONS_JSON = "organizations.json";
     public static final String TICKETS_JSON = "tickets.json";
     public static final String USERS_JSON = "users.json";

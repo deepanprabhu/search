@@ -16,10 +16,7 @@ public class JsonContainer implements Container {
             mapData = new MapData();
         }
         catch(FileNotFoundException e){
-            System.out.println("JSON File not Found - Please Check");
-        }
-        finally{
-
+            System.err.println("JSON File not Found - Please Check");
         }
     }
 
