@@ -1,0 +1,43 @@
+Organization
+    id
+    url
+    name
+    domainNames
+    createdAt
+    details
+
+Ticket
+    id
+    url
+    createdAt
+    type
+    subject
+    description
+    priority
+    status
+    submitter - A User Object
+    assignee - A User Object
+    organization - An Organization Object
+    tags
+    hasIncidents
+    dueAt
+    via
+
+User
+    id
+    url
+    name
+    alias
+    createdAt
+    active
+    verified
+    shared
+    locale
+    timezone
+    lastLoginAt
+    email
+    signature
+    organization - An Organization Object
+    tags
+    suspended
+    role

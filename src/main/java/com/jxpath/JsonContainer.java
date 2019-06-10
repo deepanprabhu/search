@@ -2,7 +2,6 @@ package com.jxpath;
 
 import com.data.mapper.MapData;
 import org.apache.commons.jxpath.Container;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -39,6 +38,5 @@ public class JsonContainer implements Container {
     }
 
     public void setValue(Object o) {
-        throw new NotImplementedException();
     }
 }
