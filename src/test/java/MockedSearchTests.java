@@ -1,18 +1,13 @@
-import com.data.loader.JsonLoader;
 import com.data.objects.Organization;
 import com.data.objects.User;
 import com.search.application.Query;
 import org.apache.commons.jxpath.JXPathNotFoundException;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.FileNotFoundException;
+import java.util.Iterator;
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest(JsonLoader.class)
 public class MockedSearchTests {
 
     /**
@@ -22,10 +17,9 @@ public class MockedSearchTests {
      */
     @Test
     public void testGetOrganization() throws FileNotFoundException {
-        Organization[] organizations = (Organization[]) Query.query("doc/organizations");
-
-        Assert.assertEquals(organizations.length, 1);
-        Assert.assertEquals(organizations[0].getName(), "Enthaze");
+        Iterator iterator = Query.query("doc/organizations");
+        Organization organization = (Organization) iterator.next();
+        Assert.assertEquals(organization.getName(), "Enthaze");
     }
 
     /**
@@ -35,8 +29,8 @@ public class MockedSearchTests {
      */
     @Test
     public void testGetAUser() throws FileNotFoundException {
-        User user = (User) Query.query("doc/users[1]");
-
+        Iterator iterator = Query.query("doc/users[1]");
+        User user = (User) iterator.next();
         Assert.assertEquals(user.getEmail(), "austinaguilar@flotonic.com");
     }
 
@@ -57,7 +51,8 @@ public class MockedSearchTests {
      */
     @Test
     public void testRelatedEntriesSubmittedUser() {
-        User user = (User) Query.query("doc/tickets[1]/submitter");
+        Iterator iterator = Query.query("doc/tickets[1]/submitter");
+        User user = (User) iterator.next();
         Assert.assertEquals(user.getName(), "Daniel Agüilar");
     }
 
@@ -66,7 +61,8 @@ public class MockedSearchTests {
      */
     @Test
     public void testRelatedEntriesAssignedUser() {
-        User user = (User) Query.query("doc/tickets[1]/assignee");
+        Iterator iterator = Query.query("doc/tickets[1]/assignee");
+        User user = (User) iterator.next();
         Assert.assertEquals(user.getName(), "Tyler Bates");
     }
 
@@ -75,7 +71,8 @@ public class MockedSearchTests {
      */
     @Test
     public void testUserWithEmptyRole() {
-        User user = (User) Query.query("doc/users[@role='']");
+        Iterator iterator = Query.query("doc/users[@role='']");
+        User user = (User) iterator.next();
         Assert.assertEquals(user.getEmail(), "noroleuser@flotonic.com");
     }
 

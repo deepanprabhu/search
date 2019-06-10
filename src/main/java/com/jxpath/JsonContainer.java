@@ -14,7 +14,6 @@ import java.util.HashMap;
 public class JsonContainer implements Container {
 
     MapData mapData;
-    HashMap<String, Object> objects = new HashMap<String, Object>();
 
     /**
      * Constructor begins by mapping json files and resolving references.
@@ -31,6 +30,7 @@ public class JsonContainer implements Container {
      * @return Object Hashmap - Referring users, tickets and organizations
      */
     public Object getValue() {
+        HashMap<String, Object> objects = new HashMap<String, Object>();
         objects.put("users", mapData.getUsers());
         objects.put("tickets", mapData.getTickets());
         objects.put("organizations", mapData.getOrganizations());

@@ -1,5 +1,7 @@
 package com.display;
 
+import java.util.Iterator;
+
 /**
  * Basic Pretty printer - for custom display on console
  */
@@ -10,22 +12,16 @@ public class PrettyPrinter {
 
     /**
      * Customize this method to change object display
-     *
-     * @param object
      */
-    public static void print(Object object) {
-        int counter = 0;
-        if (object != null && object.getClass().isArray()) {
-            Object[] objects = (Object[]) object;
-            System.out.println("********");
-            for (Object anObject : objects) {
-                System.out.println(String.format("Result : %d", counter));
-                System.out.println(anObject);
-                counter++;
-                System.out.println("********");
-            }
-        } else {
-            System.out.println(object);
+    public static void print(Iterator iterator) {
+        int count = 0;
+
+        while (iterator.hasNext()) {
+            System.out.println("***** Result Start ********");
+            System.out.println(iterator.next());
+            System.out.println("***** Result End ********");
+            count++;
         }
+        System.out.println("No of Results - " + count);
     }
 }
