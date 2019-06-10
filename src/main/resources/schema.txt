@@ -1,3 +1,8 @@
+_________
+Schema - Organization, Ticket and User
+The listed objects and their properties can be queried using xpath
+_________
+
 Organization
     id
     url
